@@ -3,7 +3,7 @@ import { FurnitureId } from "../value-objects/furniture-id.value";
 import { PieceId } from "../value-objects/piece-id.value";
 import { Piece } from "../entities/piece.entity";
 
-export class FurnitureDesign {
+export class Furniture {
     private _id: FurnitureId;
     private _name: string;
     private _pieces: Piece[];
