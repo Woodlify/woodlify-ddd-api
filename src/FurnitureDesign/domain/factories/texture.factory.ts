@@ -1,5 +1,5 @@
 import { Texture } from "../entities/texture.entity"
-import { ColorRGB } from "../value-objects/colorRGB.value,";
+import { ColorRGB } from "../value-objects/colorRGB.value";
 import { TextureId } from "../value-objects/texture-id.value"
 
 export class TextureFactory{

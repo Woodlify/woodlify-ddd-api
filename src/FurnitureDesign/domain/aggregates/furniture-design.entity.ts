@@ -6,7 +6,7 @@ import { Piece } from "../entities/piece.entity";
 export class Furniture {
     private _id: FurnitureId;
     private _name: string;
-    private _pieces: Piece[];
+    private _pieces: PieceId[];
     private _designedAt: Date;
     private _designedBy: CustomerId;
 
@@ -18,7 +18,7 @@ export class Furniture {
         this._name = name;
     }
     
-    addShape(shape: Piece): void {
+    addShape(shape: PieceId): void {
         this._pieces.push(shape);
     }
 
