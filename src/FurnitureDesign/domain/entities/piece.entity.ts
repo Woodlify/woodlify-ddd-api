@@ -1,6 +1,6 @@
 import { Edge } from "./edge.entity";
 import { Texture } from "./texture.entity";
-import { PieceId } from "../value-objects/piece-id.value"
+import { PieceId } from "../value-objects/piece-id.value";
 
 
 
