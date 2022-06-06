@@ -1,4 +1,3 @@
-import { Binary } from "typeorm";
 import { ColorRGB } from "../value-objects/colorRGB.value";
 import { TextureId } from "../value-objects/texture-id.value";
 

@@ -9,9 +9,9 @@ export class CanvasTypeorm {
     @Column('varchar', { name: 'name', length: 50, nullable: false })
     public name: string;
 
-    @Column('date', {name: 'creation_date', nullable: false})
+    @Column('datetime', {name: 'creation_date', nullable: false})
     public createdAt: Date;
 
-    @Column('date', { name: 'last_modification_date', nullable: false })
+    @Column('datetime', { name: 'last_modification_date', nullable: false })
     public lastModification: Date;
 }

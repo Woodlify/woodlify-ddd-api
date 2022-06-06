@@ -6,7 +6,7 @@ export class PieceId {
     static create(id: number): PieceId {
         return new PieceId(id);
     }
-    getCanvasId(): number {
+    getValue(): number {
         return this._id;
     } 
 }
