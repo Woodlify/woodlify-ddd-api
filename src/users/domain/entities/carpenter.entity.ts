@@ -4,6 +4,7 @@ import { UserType } from '../enums/user-type.enum';
 import { CarpenterName } from '../../../common/domain/value-objects/carpenter-name.value';
 import { User } from './user.entity';
 import { Ruc } from '../value-objects/ruc.value';
+import { CarpenterRegistered } from '../events/carpenter-registered.event';
 
 export class Carpenter extends User {
   private name: CarpenterName;
@@ -12,6 +13,14 @@ export class Carpenter extends User {
     super(UserType.CARPENTER, account);
     this.name = name;
     this.ruc = ruc;
+  }
+  public register() {
+    const event = new CarpenterRegistered(
+      this.id.getValue(),
+      this.name.getValue(),
+      this.ruc.getValue(),
+    );
+    this.apply(event);
   }
   public getId(): UserId {
     return this.id;
