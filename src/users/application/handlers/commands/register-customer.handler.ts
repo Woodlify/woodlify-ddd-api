@@ -13,7 +13,7 @@ import { CustomerTypeORM } from '../../../infrastructure/persistence/typeorm/ent
 import { Account } from '../../../domain/value-objects/account.value';
 
 @CommandHandler(RegisterCustomer)
-export class RegisterCompanyHandler
+export class RegisterCustomerHandler
   implements ICommandHandler<RegisterCustomer>
 {
   constructor(

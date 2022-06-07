@@ -3,7 +3,7 @@ import { EventsHandler } from '@nestjs/cqrs/dist/decorators/events-handler.decor
 import { CustomerRegistered } from '../../../domain/events/customer-registered.event';
 
 @EventsHandler(CustomerRegistered)
-export class CompanyRegisteredHandler
+export class CustomerRegisteredHandler
   implements IEventHandler<CustomerRegistered>
 {
   // eslint-disable-next-line @typescript-eslint/no-empty-function

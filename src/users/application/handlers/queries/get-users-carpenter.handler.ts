@@ -4,7 +4,7 @@ import { getManager } from 'typeorm';
 import { GetUsersCarpenterDto } from '../../dtos/queries/get-users-carpenter.dto';
 
 @QueryHandler(GetUsersCarpenterDto)
-export class GetCustomersCompanyHandler implements IQueryHandler<GetUsersCarpenterQuery> {
+export class GetUsersCarpenterHandler implements IQueryHandler<GetUsersCarpenterQuery> {
   constructor() {}
 
   async execute(query: GetUsersCarpenterQuery) {

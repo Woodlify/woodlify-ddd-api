@@ -14,7 +14,7 @@ import { CarpenterTypeORM } from '../../../infrastructure/persistence/typeorm/en
 import { Account } from '../../../domain/value-objects/account.value';
 
 @CommandHandler(RegisterCarpenter)
-export class RegisterCompanyHandler
+export class RegisterCarpenterHandler
   implements ICommandHandler<RegisterCarpenter>
 {
   constructor(
