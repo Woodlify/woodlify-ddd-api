@@ -15,7 +15,8 @@ import { Account } from '../../../domain/value-objects/account.value';
 
 @CommandHandler(RegisterCarpenter)
 export class RegisterCompanyHandler
-  implements ICommandHandler<RegisterCarpenter> {
+  implements ICommandHandler<RegisterCarpenter>
+{
   constructor(
     @InjectRepository(CarpenterTypeORM)
     private carpenterRepository: Repository<CarpenterTypeORM>,
@@ -44,13 +45,18 @@ export class RegisterCompanyHandler
     if (accountResult.isFailure()) {
       return carpenterId;
     }
-    const account: Account= Account.from(command.username,command.email,command.password);
+    const account: Account = Account.from(
+      command.username,
+      command.email,
+      command.password,
+    );
     let carpenter: Carpenter = CarpenterFactory.createFrom(
       carpenterNameResult.value,
       rucResult.value,
       account,
     );
-    let carpenterTypeORM: CarpenterTypeORM = CarpenterMapper.toTypeORM(carpenter);
+    let carpenterTypeORM: CarpenterTypeORM =
+      CarpenterMapper.toTypeORM(carpenter);
     carpenterTypeORM = await this.carpenterRepository.save(carpenterTypeORM);
     if (carpenterTypeORM == null) {
       return carpenterId;
