@@ -21,4 +21,7 @@ export class User extends AggregateRoot {
   public getAccount(): Account {
     return this.account;
   }
+  public changeId(id: UserId) {
+    this.id = id;
+  }
 }

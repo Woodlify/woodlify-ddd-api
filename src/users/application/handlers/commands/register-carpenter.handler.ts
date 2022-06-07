@@ -56,7 +56,7 @@ export class RegisterCompanyHandler
       return carpenterId;
     }
     carpenterId = Number(carpenterTypeORM.id);
-    // carpenter.changeId(ClientId.of(clientId));
+    carpenter.changeId(UserId.of(carpenterId));
     carpenter = this.publisher.mergeObjectContext(carpenter);
     carpenter.register();
     carpenter.commit();
