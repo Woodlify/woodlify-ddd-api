@@ -1,4 +1,4 @@
-import { WoodType } from "src/FurnitureDesign/domain/enums/woodType.enum";
+import { WoodType } from "src/furniture-design/domain/enums/woodType.enum";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { ColorRGBTypeorm } from "../value-objects/color-rgb.typeorm";
 

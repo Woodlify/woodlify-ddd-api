@@ -1,5 +1,5 @@
-import { Piece } from "src/FurnitureDesign/domain/entities/piece.entity";
-import { PieceTypeorm } from "src/FurnitureDesign/infraestructure/persistence/typeorm/entities/piece.typeorm";
+import { Piece } from "src/furniture-design/domain/entities/piece.entity";
+import { PieceTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/entities/piece.typeorm";
 
 export class PieceMapper {
     public static toTypeOrm(piece: Piece): PieceTypeorm {

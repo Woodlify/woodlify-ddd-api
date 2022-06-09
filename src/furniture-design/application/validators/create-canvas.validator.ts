@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AppNotification } from "src/common/application/app-notification";
-import { CanvasTypeorm } from "src/FurnitureDesign/infraestructure/persistence/typeorm/entities/canvas.typeorm";
+import { CanvasTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/entities/canvas.typeorm";
 import { Repository } from "typeorm";
 import { RegisterCanvasRequest } from "../dtos/request/register-canvas-request.dto";
 

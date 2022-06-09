@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 import { AccountTypeORM } from './account.typeorm';
-@Entity('users')
+@Entity('user-profile')
 export abstract class UserTypeORM {
   @PrimaryGeneratedColumn('increment', {
     type: 'bigint',

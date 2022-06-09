@@ -1,4 +1,4 @@
-import { CanvasId } from "src/FurnitureDesign/domain/value-objects/canvas-id.value";
+import { CanvasId } from "src/furniture-design/domain/value-objects/canvas-id.value";
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('canvases')
