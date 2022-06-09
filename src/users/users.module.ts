@@ -43,7 +43,7 @@ export const QueryHandlers = [
     RegisterCarpenterValidator,
     ...CommandHandlers,
     ...EventHandlers,
-    ...QueryHandlers
-  ]
+    ...QueryHandlers,
+  ],
 })
-export class ClientsModule {}
+export class UsersModule {}

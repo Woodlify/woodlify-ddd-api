@@ -21,10 +21,15 @@ export class GetUsersCustomerHandler implements IQueryHandler<GetUsersCustomerQu
     if (ormCustomers.length <= 0) {
       return [];
     }
-    const customers: GetUsersCustomerDto[] = ormCustomers.map(function (ormCustomer) {
+    const customers: GetUsersCustomerDto[] = ormCustomers.map(function (
+      ormCustomer,
+    ) {
       const customerDto = new GetUsersCustomerDto();
       customerDto.id = Number(ormCustomer.id);
       customerDto.customerName = ormCustomer.name;
+      customerDto.username = ormCustomer.username;
+      customerDto.email = ormCustomer.email;
+      customerDto.password = ormCustomer.password;
       return customerDto;
     });
     return customers;

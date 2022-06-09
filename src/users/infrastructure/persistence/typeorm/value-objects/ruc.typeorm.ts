@@ -1,7 +1,7 @@
 import { Column } from 'typeorm';
 
 export class RucTypeORM {
-  @Column('varchar', { name: 'ruc', length: 11, nullable: true })
+  @Column('varchar', { name: 'ruc', length: 100, nullable: true })
   value: string;
 
   private constructor(value: string) {

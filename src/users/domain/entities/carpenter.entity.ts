@@ -17,6 +17,9 @@ export class Carpenter extends User {
   public register() {
     const event = new CarpenterRegistered(
       this.id.getValue(),
+      this.getAccount().getUsername(),
+      this.getAccount().getEmail(),
+      this.getAccount().getPassword(),
       this.name.getValue(),
       this.ruc.getValue(),
     );

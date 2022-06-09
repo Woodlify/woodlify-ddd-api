@@ -4,7 +4,7 @@ import { AppNotification } from 'src/common/application/app-notification';
 import { Result } from 'typescript-result';
 import { RegisterCarpenterValidator } from '../validators/register-carpenter.validator';
 import { RegisterCarpenter } from '../commands/register-carpenter.command';
-import { RegisterCarpenterRequest } from '../dtos/request/register-carpenter-request';
+import { RegisterCarpenterRequestDto } from '../dtos/request/register-carpenter-request.dto';
 import { RegisterCarpenterResponse } from '../dtos/response/register-carpenter-response.dto';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class CarpenterApplicationService {
   ) {}
 
   async register(
-    registerCarpenterRequest: RegisterCarpenterRequest,
+    registerCarpenterRequest: RegisterCarpenterRequestDto,
   ): Promise<Result<AppNotification, RegisterCarpenterResponse>> {
     const notification: AppNotification =
       await this.registerCarpenterValidator.validate(registerCarpenterRequest);
@@ -24,10 +24,10 @@ export class CarpenterApplicationService {
     }
     const registerCarpenter: RegisterCarpenter = new RegisterCarpenter(
       registerCarpenterRequest.carpenterName,
+      registerCarpenterRequest.ruc,
       registerCarpenterRequest.email,
       registerCarpenterRequest.username,
       registerCarpenterRequest.password,
-      registerCarpenterRequest.ruc,
     );
     const userId = await this.commandBus.execute(registerCarpenter);
     const registerCarpenterResponse: RegisterCarpenterResponse =
@@ -39,6 +39,7 @@ export class CarpenterApplicationService {
         registerCarpenterRequest.username,
         registerCarpenterRequest.password,
       );
+    console.log(userId);
     return Result.ok(registerCarpenterResponse);
   }
 }

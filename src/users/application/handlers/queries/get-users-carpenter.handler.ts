@@ -28,6 +28,9 @@ export class GetUsersCarpenterHandler implements IQueryHandler<GetUsersCarpenter
       const carpenterDto = new GetUsersCarpenterDto();
       carpenterDto.id = Number(ormCarpenter.id);
       carpenterDto.carpenterName = ormCarpenter.carpenterName;
+      carpenterDto.username = ormCarpenter.username;
+      carpenterDto.email = ormCarpenter.email;
+      carpenterDto.password = ormCarpenter.password;
       carpenterDto.ruc = ormCarpenter.ruc;
       return carpenterDto;
     });

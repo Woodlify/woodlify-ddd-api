@@ -11,6 +11,7 @@ import { CustomerFactory } from '../../../domain/factories/customer.factory';
 import { Customer } from '../../../domain/entities/customer.entity';
 import { CustomerTypeORM } from '../../../infrastructure/persistence/typeorm/entities/customer.typeorm';
 import { Account } from '../../../domain/value-objects/account.value';
+import { CardId } from "../../../domain/value-objects/card-id.value";
 
 @CommandHandler(RegisterCustomer)
 export class RegisterCustomerHandler
@@ -24,6 +25,7 @@ export class RegisterCustomerHandler
 
   async execute(command: RegisterCustomer) {
     let customerId = 0;
+    let cardId = null;
     const customerNameResult: Result<AppNotification, CustomerName> =
       CustomerName.create(command.name);
     if (customerNameResult.isFailure()) {
@@ -43,9 +45,14 @@ export class RegisterCustomerHandler
       command.email,
       command.password,
     );
+    if (command.cardId != null) {
+      cardId = CardId.of(command.cardId);
+    }
+
     let customer: Customer = CustomerFactory.createFrom(
       customerNameResult.value,
       account,
+      cardId,
     );
     let customerTypeORM: CustomerTypeORM = CustomerMapper.toTypeORM(customer);
     customerTypeORM = await this.customerRepository.save(customerTypeORM);

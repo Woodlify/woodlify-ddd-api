@@ -27,6 +27,7 @@ export class CustomerApplicationService {
       registerCustomerRequest.email,
       registerCustomerRequest.username,
       registerCustomerRequest.password,
+      registerCustomerRequest.cardId,
     );
     const userId = await this.commandBus.execute(registerCustomer);
     const registerCustomerResponse: RegisterCustomerResponse =
@@ -36,6 +37,7 @@ export class CustomerApplicationService {
         registerCustomerRequest.email,
         registerCustomerRequest.username,
         registerCustomerRequest.password,
+        registerCustomerRequest.cardId,
       );
     return Result.ok(registerCustomerResponse);
   }

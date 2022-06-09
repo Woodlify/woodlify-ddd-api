@@ -1,4 +1,4 @@
-export class RegisterCarpenterRequest {
+export class RegisterCarpenterRequestDto {
   public carpenterName: string;
   public email: string;
   public username: string;

@@ -19,15 +19,20 @@ export class RegisterCustomerValidator {
   ): Promise<AppNotification> {
     const notification: AppNotification = new AppNotification();
     const name: string = registerCustomerRequest.customerName.trim();
-    const username: string = registerCustomerRequest.username.trim();
     if (name.length <= 0) {
       notification.addError('name is required', null);
     }
-    if (notification.hasErrors()) {
-      return notification;
-    }
+    const username: string = registerCustomerRequest.username.trim();
     if (username.length <= 0) {
-      notification.addError('name is required', null);
+      notification.addError('username is required', null);
+    }
+    const email: string = registerCustomerRequest.email.trim();
+    if (email.length <= 0) {
+      notification.addError('email is required', null);
+    }
+    const password: string = registerCustomerRequest.password.trim();
+    if (password.length <= 0) {
+      notification.addError('password is required', null);
     }
     if (notification.hasErrors()) {
       return notification;

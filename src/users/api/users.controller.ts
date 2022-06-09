@@ -1,5 +1,5 @@
 import { Controller, Post, Body, Res, Get } from '@nestjs/common';
-import { RegisterCarpenterRequest } from '../application/dtos/request/register-carpenter-request';
+import { RegisterCarpenterRequestDto } from '../application/dtos/request/register-carpenter-request.dto';
 import { RegisterCarpenterResponse } from '../application/dtos/response/register-carpenter-response.dto';
 import { CarpenterApplicationService } from '../application/services/carpenter-application.service';
 import { Result } from 'typescript-result';
@@ -12,7 +12,7 @@ import { RegisterCustomerRequest } from '../application/dtos/request/register-cu
 import { RegisterCustomerResponse } from '../application/dtos/response/register-customer-response.dto';
 import { GetUsersCustomerQuery } from '../application/queries/get-users-customer.query';
 
-@Controller('clients')
+@Controller('users')
 export class UsersController {
   constructor(
     private readonly carpenterApplicationService: CarpenterApplicationService,
@@ -38,11 +38,14 @@ export class UsersController {
 
   @Post('/carpenter')
   async registerCarpenter(
-    @Body() registerCarpenterRequest: RegisterCarpenterRequest,
-    @Res({ passthrough: true }) response
+    @Body() registerCarpenterRequest: RegisterCarpenterRequestDto,
+    @Res({ passthrough: true }) response,
   ): Promise<object> {
     try {
-      const result: Result<AppNotification, RegisterCarpenterResponse> = await this.carpenterApplicationService.register(registerCarpenterRequest);
+      const result: Result<AppNotification, RegisterCarpenterResponse> =
+        await this.carpenterApplicationService.register(
+          registerCarpenterRequest,
+        );
       if (result.isSuccess()) {
         return ApiController.created(response, result.value);
       }
