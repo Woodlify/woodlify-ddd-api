@@ -4,6 +4,7 @@ import { CanvasId } from "../value-objects/canvas-id.value";
 import { Piece } from "../entities/piece.entity";
 import { AggregateRoot } from "@nestjs/cqrs";
 import { CreatedDesignEvent } from "../events/created-design.event";
+import { ModifiedDesignEvent } from "../events/modified-design.event";
 
 export class Furniture extends AggregateRoot {
     private _id: FurnitureId;
@@ -48,6 +49,9 @@ export class Furniture extends AggregateRoot {
     get canvasId() {
         return this._canvasId;
     }
+    set pieces(pieces: Piece[]) {
+        this._pieces = pieces;
+    }
 
     public register() {
         const event = new CreatedDesignEvent(
@@ -56,6 +60,17 @@ export class Furniture extends AggregateRoot {
             this._pieces,
             this._designDate,
             this._lastModificationDate
+        );
+        this.apply(event);
+    }
+
+    public update() {
+        const event = new ModifiedDesignEvent(
+            this._id.getFurnitureId(),
+            this._name,
+            this._pieces,
+            this._designDate,
+            this._canvasId
         );
         this.apply(event);
     }

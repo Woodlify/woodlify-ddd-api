@@ -6,6 +6,6 @@ import { CreateDesignCommand } from "../../commands/create-desing.command";
 export class CreatedCanvasHandler implements IEventHandler<CreatedCanvasEvent> {
     constructor () {}
     async handle (event: CreatedCanvasEvent) {
-        
+        console.log("Canvas has been created");
     }
 }
