@@ -3,7 +3,7 @@ import { PieceIdTypeorm } from "../value-objects/piece-id.typeorm";
 import { VertexTypeorm } from "../value-objects/vertex.typeorm";
 
 @Entity('edges')
-export class EdgesTypeorm {
+export class EdgeTypeorm {
     @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
     public id: number;
 

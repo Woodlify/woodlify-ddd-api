@@ -10,14 +10,20 @@ export class Texture {
     ) {
         
     }
-    getColor(): ColorRGB {
+    get color(): ColorRGB {
         return this._colorRGB;
     }
     changeColor(newColor: ColorRGB): void {
         this._colorRGB = {...newColor};
     }
-    getTextureId(): TextureId {
+    get textureId(): TextureId {
         return this._id;
+    }
+    get pixelsDensity() {
+        return this._pixelsDensity;
+    }
+    get material() {
+        return this._material;
     }
 }
 
