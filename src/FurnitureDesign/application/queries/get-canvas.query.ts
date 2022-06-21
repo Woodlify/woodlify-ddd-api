@@ -1,3 +1,1 @@
-export class GetCanvasQuery {
-
-}
+export class GetCanvasQuery {}

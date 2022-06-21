@@ -1,7 +1,7 @@
 import { Piece } from "src/FurnitureDesign/domain/entities/piece.entity";
 import { CanvasId } from "src/FurnitureDesign/domain/value-objects/canvas-id.value";
 
-export class ModifyDesignCommand {
+export class ModifyDesignRequest {
     constructor (
         public readonly id: number,
         public readonly name: string,

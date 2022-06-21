@@ -25,7 +25,7 @@ export class CreateDesignHandler implements ICommandHandler<CreateDesignCommand>
         let furniture: Furniture = FurnitureFactory.createFrom(
             command.designedDate,
             command.lastModification,
-            command.title,
+            command.name,
             command.canvasId
         );
         let furnitureTypeOrm: FurnitureTypeorm = FurnitureMapper.toTypeOrm(furniture);

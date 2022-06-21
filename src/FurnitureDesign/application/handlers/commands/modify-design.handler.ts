@@ -23,7 +23,7 @@ export class ModifyDesignHandler implements ICommandHandler<ModifyDesignCommand>
             return furnitureId;
         let furniture: Furniture = FurnitureFactory.createFrom(
             command.designDate,
-            new Date(),
+            command.lastModificationDate,
             command.name,
             command.canvasId
         );
