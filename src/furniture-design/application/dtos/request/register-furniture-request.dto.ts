@@ -1,9 +1,8 @@
-import { Piece } from "src/FurnitureDesign/domain/entities/piece.entity";
-import { CanvasId } from "src/FurnitureDesign/domain/value-objects/canvas-id.value";
+import { Piece } from "src/furniture-design/domain/entities/piece.entity";
+import { CanvasId } from "src/furniture-design/domain/value-objects/canvas-id.value";
 
-export class ModifyDesignCommand {
+export class RegisterFurnitureRequest {
     constructor (
-        public readonly id: number,
         public readonly name: string,
         public readonly pieces: Piece[],
         public readonly designDate: Date,
