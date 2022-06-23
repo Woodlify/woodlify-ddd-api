@@ -1,6 +1,5 @@
 import { EventsHandler, IEventHandler } from "@nestjs/cqrs";
-import { CreatedDesignEvent } from "src/FurnitureDesign/domain/events/created-design.event";
-
+import { CreatedDesignEvent } from "src/furniture-design/domain/events/created-design.event";
 @EventsHandler(CreatedDesignEvent)
 export class CreatedDesignHandler implements IEventHandler<CreatedDesignEvent> {
     constructor () {}

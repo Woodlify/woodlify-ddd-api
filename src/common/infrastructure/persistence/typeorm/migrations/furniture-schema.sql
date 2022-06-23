@@ -95,6 +95,8 @@ CREATE TABLE IF NOT EXISTS textures (
     CONSTRAINT textures_pk PRIMARY KEY  (id)
 );
 
+/*
+
 ALTER TABLE edges ADD CONSTRAINT edges_pieces
     FOREIGN KEY (pieces_id)
     REFERENCES pieces (id);
@@ -120,4 +122,4 @@ ALTER TABLE pieces ADD CONSTRAINT pieces_furnitures
 ALTER TABLE textures ADD CONSTRAINT textures_pieces
     FOREIGN KEY (pieces_id)
     REFERENCES pieces (id);
-
+*/

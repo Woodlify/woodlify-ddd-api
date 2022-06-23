@@ -1,5 +1,5 @@
-import { Piece } from "src/FurnitureDesign/domain/entities/piece.entity";
-import { CanvasId } from "src/FurnitureDesign/domain/value-objects/canvas-id.value";
+import { Piece } from "src/furniture-design/domain/entities/piece.entity";
+import { CanvasId } from "src/furniture-design/domain/value-objects/canvas-id.value";
 
 export class CreateDesignCommand {
     constructor(

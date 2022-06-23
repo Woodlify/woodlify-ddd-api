@@ -1,14 +1,14 @@
 import { WoodType } from "src/furniture-design/domain/enums/woodType.enum";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { ColorRGBTypeorm } from "../value-objects/color-rgb.typeorm";
+import { ColorRGBTypeORM } from "../value-objects/color-rgb.typeorm";
 
 @Entity('textures')
-export class TextureTypeorm {
+export class TextureTypeORM {
     @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
     public id: number;
     
-    @Column( (type) => ColorRGBTypeorm, { prefix: false })
-    public color: ColorRGBTypeorm;
+    @Column( (type) => ColorRGBTypeORM, { prefix: false })
+    public color: ColorRGBTypeORM;
 
     @Column('int', { name: 'pixels_density', nullable: false })
     public pixelsDensity: number;

@@ -1,9 +1,9 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from "@nestjs/cqrs";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Furniture } from "src/FurnitureDesign/domain/aggregates/furniture-design.entity";
-import { FurnitureFactory } from "src/FurnitureDesign/domain/factories/furniture.factory";
-import { FurnitureId } from "src/FurnitureDesign/domain/value-objects/furniture-id.value";
-import { FurnitureTypeorm } from "src/FurnitureDesign/infraestructure/persistence/typeorm/entities/furniture.typeorm";
+import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
+import { FurnitureFactory } from "src/furniture-design/domain/factories/furniture.factory";
+import { FurnitureId } from "src/furniture-design/domain/value-objects/furniture-id.value";
+import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
 import { Repository } from "typeorm";
 import { ModifyDesignCommand } from "../../commands/modify-design.command";
 import { FurnitureMapper } from "../../mappers/furniture.mapper";
@@ -11,8 +11,8 @@ import { FurnitureMapper } from "../../mappers/furniture.mapper";
 @CommandHandler(ModifyDesignCommand)
 export class ModifyDesignHandler implements ICommandHandler<ModifyDesignCommand> {
     constructor (
-        @InjectRepository(FurnitureTypeorm)
-        private _furnitureRepository: Repository<FurnitureTypeorm>,
+        @InjectRepository(FurnitureTypeORM)
+        private _furnitureRepository: Repository<FurnitureTypeORM>,
         private _publisher: EventPublisher
     ) {}
 
@@ -28,7 +28,7 @@ export class ModifyDesignHandler implements ICommandHandler<ModifyDesignCommand>
             command.canvasId
         );
         furniture.pieces = command.pieces;
-        let furnitureTypeOrm: FurnitureTypeorm = FurnitureMapper.toTypeOrm(furniture);
+        let furnitureTypeOrm: FurnitureTypeORM = FurnitureMapper.toTypeOrm(furniture);
         furnitureTypeOrm = await this._furnitureRepository.save(furnitureTypeOrm);
         if( furnitureTypeOrm == null )
             return furnitureId;

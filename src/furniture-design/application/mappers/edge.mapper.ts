@@ -1,12 +1,12 @@
 import { Edge } from "src/furniture-design/domain/entities/edge.entity";
-import { EdgeTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/entities/edge.typorm";
-import { PieceIdTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/piece-id.typeorm";
-import { VertexTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/vertex.typeorm";
+import { EdgeTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/edge.typorm";
+import { PieceIdTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/piece-id.typeorm";
+import { VertexTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/vertex.typeorm";
 
 export class EdgeMapper {
-    public static toTypeOrm(edge: Edge): EdgeTypeorm {
-        const edgeTypeOrm: EdgeTypeorm = new EdgeTypeorm();
-        edgeTypeOrm.vertex = VertexTypeorm.from(
+    public static toTypeOrm(edge: Edge): EdgeTypeORM {
+        const edgeTypeOrm: EdgeTypeORM = new EdgeTypeORM();
+        edgeTypeOrm.vertex = VertexTypeORM.from(
             edge.vertex.x1,
             edge.vertex.y1,
             edge.vertex.z1,
@@ -14,7 +14,7 @@ export class EdgeMapper {
             edge.vertex.y2,
             edge.vertex.z2
         );
-        edgeTypeOrm.pieceId = PieceIdTypeorm.from(edge.getId().getEdgeId());
+        edgeTypeOrm.pieceId = PieceIdTypeORM.from(edge.getId().getEdgeId());
         return edgeTypeOrm;
     }
 }

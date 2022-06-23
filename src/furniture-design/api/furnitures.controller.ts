@@ -34,7 +34,7 @@ export class FurnituresController {
     }
 
     @Get()
-    async getFuritures(@Res({ passthrough: true }) response): Promise<object> {
+    async getFuritures(@Res({ passthrough: true }) response): Promise<any> {
         try {
             const furnitures = await this.queryBus.execute(new GetFurnituresQuery());
             return ApiController.ok(response, furnitures);

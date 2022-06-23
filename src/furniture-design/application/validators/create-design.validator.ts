@@ -1,16 +1,16 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AppNotification } from "src/common/application/app-notification";
-import { CanvasTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/entities/canvas.typeorm";
-import { FurnitureTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
+import { CanvasTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/canvas.typeorm";
+import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
 import { Repository } from "typeorm";
 import { RegisterFurnitureRequest } from "../dtos/request/register-furniture-request.dto";
 
 @Injectable()
 export class RegisterDesignValidator {
     constructor (
-        @InjectRepository(FurnitureTypeorm)
-        private _furnitureRepository: Repository<CanvasTypeorm>
+        @InjectRepository(FurnitureTypeORM)
+        private _furnitureRepository: Repository<CanvasTypeORM>
 
     ) {}
 

@@ -1,15 +1,15 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
-import { PieceIdTypeorm } from "../value-objects/piece-id.typeorm";
-import { VertexTypeorm } from "../value-objects/vertex.typeorm";
+import { PieceIdTypeORM } from "../value-objects/piece-id.typeorm";
+import { VertexTypeORM } from "../value-objects/vertex.typeorm";
 
 @Entity('edges')
-export class EdgeTypeorm {
+export class EdgeTypeORM {
     @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
     public id: number;
 
-    @Column((type) => VertexTypeorm, { prefix: false })
-    public vertex: VertexTypeorm;
+    @Column((type) => VertexTypeORM, { prefix: false })
+    public vertex: VertexTypeORM;
 
-    @Column( (type) => PieceIdTypeorm, { prefix: false })
-    public pieceId: PieceIdTypeorm;
+    @Column( (type) => PieceIdTypeORM, { prefix: false })
+    public pieceId: PieceIdTypeORM;
 }

@@ -1,6 +1,6 @@
 import { Column } from "typeorm";
 
-export class ColorRGBTypeorm {
+export class ColorRGBTypeORM {
     @Column('int', {name: 'r_channel', nullable: false})
     public rChannel: number;
     @Column('int', {name: 'g_channel', nullable: false})
@@ -14,8 +14,8 @@ export class ColorRGBTypeorm {
         this.bChannel = bChannel;
     }
 
-    public static from(rChannel: number, gChannel: number, bChannel: number): ColorRGBTypeorm {
-        return new ColorRGBTypeorm(rChannel,gChannel,bChannel);
+    public static from(rChannel: number, gChannel: number, bChannel: number): ColorRGBTypeORM {
+        return new ColorRGBTypeORM(rChannel,gChannel,bChannel);
     }
 
 }

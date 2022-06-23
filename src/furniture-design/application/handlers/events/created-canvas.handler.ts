@@ -1,7 +1,5 @@
 import { EventsHandler, IEventHandler } from "@nestjs/cqrs";
-import { CreatedCanvasEvent } from "src/FurnitureDesign/domain/events/created-canvas.event";
-import { CreateDesignCommand } from "../../commands/create-desing.command";
-
+import { CreatedCanvasEvent } from "src/furniture-design/domain/events/created-canvas.event";
 @EventsHandler(CreatedCanvasEvent)
 export class CreatedCanvasHandler implements IEventHandler<CreatedCanvasEvent> {
     constructor () {}

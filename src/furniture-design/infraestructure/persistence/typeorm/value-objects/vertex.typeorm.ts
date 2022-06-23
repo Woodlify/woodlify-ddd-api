@@ -1,6 +1,6 @@
 import { Column } from "typeorm";
 
-export class VertexTypeorm {
+export class VertexTypeORM {
     @Column('int', { name: 'x1', nullable: false })
     public x1: number;
 
@@ -28,7 +28,7 @@ export class VertexTypeorm {
         this.z2 = z2;
     }
 
-    public static from(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): VertexTypeorm {
-        return new VertexTypeorm(x1,y1,z1,x2,y2,z2);
+    public static from(x1: number, y1: number, z1: number, x2: number, y2: number, z2: number): VertexTypeORM {
+        return new VertexTypeORM(x1,y1,z1,x2,y2,z2);
     }
 }

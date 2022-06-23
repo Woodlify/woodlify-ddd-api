@@ -1,9 +1,9 @@
 import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { CanvasIdTypeorm } from "../value-objects/canvas-id.typeorm";
-import { PieceTypeorm } from "./piece.typeorm";
+import { CanvasIdTypeORM } from "../value-objects/canvas-id.typeorm";
+import { PieceTypeORM } from "./piece.typeorm";
 
 @Entity('furnitures')
-export class FurnitureTypeorm {
+export class FurnitureTypeORM {
     @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
     public id: number;
 
@@ -16,9 +16,9 @@ export class FurnitureTypeorm {
     @Column('datetime', {name: 'last_modification_date', nullable: false})
     public lastModificationDate: Date;
 
-    @Column( (type) => CanvasIdTypeorm, { prefix: false })
-    public canvasId: CanvasIdTypeorm;
+    @Column( (type) => CanvasIdTypeORM, { prefix: false })
+    public canvasId: CanvasIdTypeORM;
 
-    @OneToMany(type => PieceTypeorm, piece => piece.furniture)
-    pieces: PieceTypeorm[];
+    @OneToMany(type => PieceTypeORM, piece => piece.furniture)
+    pieces: PieceTypeORM[];
 }

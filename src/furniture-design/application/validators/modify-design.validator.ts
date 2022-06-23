@@ -1,15 +1,15 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AppNotification } from "src/common/application/app-notification";
-import { FurnitureTypeorm } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
+import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
 import { Repository } from "typeorm";
 import { ModifyDesignRequest } from "../dtos/request/modify-design-request";
 
 @Injectable()
 export class ModifyDesignValidator {
     constructor (
-        @InjectRepository(FurnitureTypeorm)
-        private _furnitureRepository: Repository<FurnitureTypeorm>
+        @InjectRepository(FurnitureTypeORM)
+        private _furnitureRepository: Repository<FurnitureTypeORM>
     ) {}
 
     public async validate (

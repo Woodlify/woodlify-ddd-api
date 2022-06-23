@@ -1,8 +1,7 @@
-import { CanvasId } from "src/furniture-design/domain/value-objects/canvas-id.value";
-import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('canvases')
-export class CanvasTypeorm {
+export class CanvasTypeORM {
     @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
     public id: number;
 
