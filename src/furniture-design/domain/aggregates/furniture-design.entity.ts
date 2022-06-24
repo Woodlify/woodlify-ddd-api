@@ -5,6 +5,7 @@ import { Piece } from "../entities/piece.entity";
 import { AggregateRoot } from "@nestjs/cqrs";
 import { CreatedDesignEvent } from "../events/created-design.event";
 import { ModifiedDesignEvent } from "../events/modified-design.event";
+import { FurnitureState } from "../enums/furnitureState.enum";
 
 export class Furniture extends AggregateRoot {
     private _id: FurnitureId;
@@ -13,6 +14,7 @@ export class Furniture extends AggregateRoot {
     private _designDate: Date;
     private _lastModificationDate: Date;
     private _canvasId: CanvasId;
+    private _state: FurnitureState;
 
     constructor(id: FurnitureId, designDate: Date, lastModificationDate: Date, name: string, canvasId: CanvasId){
         super();

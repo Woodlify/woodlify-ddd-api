@@ -1,4 +1,6 @@
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { FurnitureManager } from "src/furniture-manager/domain/entities/furniture-manager.entity";
+import { FurnitureManagerTypeORM } from "src/furniture-manager/infrastructure/persistence/typeorm/entities/furniture-manager.typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { CanvasIdTypeORM } from "../value-objects/canvas-id.typeorm";
 import { PieceTypeORM } from "./piece.typeorm";
 
@@ -21,4 +23,7 @@ export class FurnitureTypeORM {
 
     @OneToMany(type => PieceTypeORM, piece => piece.furniture)
     pieces: PieceTypeORM[];
+
+    @ManyToOne(type => FurnitureManagerTypeORM, furnitureManager => furnitureManager.furnitures)
+    furnitureManager: FurnitureManagerTypeORM
 }
