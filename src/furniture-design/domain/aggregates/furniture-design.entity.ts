@@ -24,6 +24,7 @@ export class Furniture extends AggregateRoot {
         this._lastModificationDate = lastModificationDate;
         this._name = name;
         this._canvasId = canvasId;
+        this._state = FurnitureState.IN_REVIEW;
     }
     
     addShape(shape: Piece): void {
@@ -38,6 +39,10 @@ export class Furniture extends AggregateRoot {
     }
     changeId(id: FurnitureId): void {
         this._id = id;
+    }
+
+    changeState(state: FurnitureState): void {
+        this._state = state;
     }
     get name() {
         return this._name;

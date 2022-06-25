@@ -1,5 +1,9 @@
 import { AggregateRoot } from "@nestjs/cqrs";
+import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
 import { FurnitureId } from "src/furniture-design/domain/value-objects/furniture-id.value";
+import { DeletedDesignEvent } from "../events/design-deleted.event";
+import { DesignSubmittedEvent } from "../events/design-submitted.event";
+import { FurnitureManagerCreated } from "../events/furniture-manager-created.event";
 import { FurnitureManagerId } from "../value-objects/furniture-manager-id.value";
 
 export class FurnitureManager extends AggregateRoot {
@@ -16,6 +20,11 @@ export class FurnitureManager extends AggregateRoot {
     get furnitures(): FurnitureId[] {
         return this._furnitures;
     }
+
+    set furnitures(furnitures: FurnitureId[]) {
+        this._furnitures = furnitures;
+    }
+
     get id(): FurnitureManagerId {
         return this._id;
     }
@@ -27,10 +36,12 @@ export class FurnitureManager extends AggregateRoot {
         this._name = name;
     }
 
-    public static getInstance(id: FurnitureManagerId, name: string): FurnitureManager {
-        if(!FurnitureManager.instance)
-            FurnitureManager.instance = new FurnitureManager(id, name);
+    public static getInstance(): FurnitureManager {
         return FurnitureManager.instance;
+    }
+
+    public static setInstance(id: FurnitureManagerId, name: string) {
+        FurnitureManager.instance = new FurnitureManager(id, name);
     }
     public static hasInstance(): boolean {
         return FurnitureManager.instance != null;
@@ -38,6 +49,46 @@ export class FurnitureManager extends AggregateRoot {
 
     public addFurniture(furnitureId: FurnitureId): void {
         this._furnitures.push(furnitureId);
+    }
+
+    public register() {
+        const event = new FurnitureManagerCreated(
+            this._name,
+            this._furnitures
+        );
+        this.apply(event);
+    }
+
+    public deleteFurnitureId(id: number, name: string): void {
+        const length = this._furnitures.length;
+        const result = this._furnitures.find( (furnitureId: FurnitureId) => {
+            return furnitureId.getFurnitureId() == id;
+        });
+        if(result){
+            this._furnitures = this._furnitures.filter((furnitureId: FurnitureId) => {
+                return furnitureId.getFurnitureId() != id;
+            });
+        }
+        const event = new DeletedDesignEvent(
+            id,
+            name
+        );
+        this.apply(event);
+    }
+
+    public changeFurnitureState(furniture: Furniture): void {
+        const event = new DesignSubmittedEvent(
+            furniture.getId().getFurnitureId(),
+            furniture.name,
+            furniture.pieces,
+            furniture.designDate,
+            furniture.lastModificationDate
+        );
+        this.apply(event);
+    }
+
+    public changeId(id: FurnitureManagerId): void {
+        this._id = id;
     }
 
 }

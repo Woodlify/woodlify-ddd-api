@@ -1,3 +1,4 @@
+import { FurnitureState } from "src/furniture-design/domain/enums/furnitureState.enum";
 import { FurnitureManager } from "src/furniture-manager/domain/entities/furniture-manager.entity";
 import { FurnitureManagerTypeORM } from "src/furniture-manager/infrastructure/persistence/typeorm/entities/furniture-manager.typeorm";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
@@ -17,6 +18,9 @@ export class FurnitureTypeORM {
 
     @Column('datetime', {name: 'last_modification_date', nullable: false})
     public lastModificationDate: Date;
+
+    @Column({name: 'state', type: 'enum', enum: FurnitureState, default: FurnitureState.IN_REVIEW })
+    public state: FurnitureState;
 
     @Column( (type) => CanvasIdTypeORM, { prefix: false })
     public canvasId: CanvasIdTypeORM;

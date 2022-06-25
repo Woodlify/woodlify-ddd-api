@@ -1,6 +1,6 @@
 import { Piece } from "src/furniture-design/domain/entities/piece.entity";
 
-export class DesignSubmitted {
+export class DesignSubmittedEvent {
     constructor (
         public readonly id: number,
         public readonly title: string,
