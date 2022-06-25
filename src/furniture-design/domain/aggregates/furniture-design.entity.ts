@@ -60,6 +60,10 @@ export class Furniture extends AggregateRoot {
         this._pieces = pieces;
     }
 
+    get state(): FurnitureState {
+        return this._state;
+    }
+
     public register() {
         const event = new CreatedDesignEvent(
             this._id.getFurnitureId(),

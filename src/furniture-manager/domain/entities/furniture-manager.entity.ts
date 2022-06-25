@@ -1,5 +1,6 @@
 import { AggregateRoot } from "@nestjs/cqrs";
 import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
+import { FurnitureState } from "src/furniture-design/domain/enums/furnitureState.enum";
 import { FurnitureId } from "src/furniture-design/domain/value-objects/furniture-id.value";
 import { DeletedDesignEvent } from "../events/design-deleted.event";
 import { DesignSubmittedEvent } from "../events/design-submitted.event";
@@ -30,10 +31,6 @@ export class FurnitureManager extends AggregateRoot {
     }
     get name(): string {
         return this._name;
-    }
-
-    set name(name: string) {
-        this._name = name;
     }
 
     public static getInstance(): FurnitureManager {
@@ -80,7 +77,7 @@ export class FurnitureManager extends AggregateRoot {
         const event = new DesignSubmittedEvent(
             furniture.getId().getFurnitureId(),
             furniture.name,
-            furniture.pieces,
+            furniture.state,
             furniture.designDate,
             furniture.lastModificationDate
         );
