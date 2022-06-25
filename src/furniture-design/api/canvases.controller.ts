@@ -41,7 +41,7 @@ export class CanvasesController {
         }
     }
 
-    @Get("/:id")
+    @Get("/:furnitureDesignId")
     async getCanvasById(@Param("id") canvasId: number, @Res({ passthrough: true }) response): Promise<object> {
         try {
             const canvas = await this.queryBus.execute(new GetCanvasByIdQuery(canvasId));

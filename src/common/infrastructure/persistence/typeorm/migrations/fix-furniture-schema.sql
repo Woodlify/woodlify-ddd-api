@@ -99,27 +99,27 @@ CREATE TABLE IF NOT EXISTS textures (
 
 ALTER TABLE edges ADD CONSTRAINT edges_pieces
     FOREIGN KEY (pieces_id)
-    REFERENCES pieces (id);
+    REFERENCES pieces (furnitureDesignId);
 
 
 -- Reference: furnitures_canvases (table: furnitures)
 ALTER TABLE furnitures ADD CONSTRAINT furnitures_canvases
     FOREIGN KEY (canvases_id)
-    REFERENCES canvases (id);
+    REFERENCES canvases (furnitureDesignId);
 
 -- Reference: furnitures_manager_furnitures (table: furnitures_manager)
 ALTER TABLE furnitures_manager ADD CONSTRAINT furnitures_manager_furnitures
     FOREIGN KEY (furnitures_id)
-    REFERENCES furnitures (id);
+    REFERENCES furnitures (furnitureDesignId);
 
 -- Reference: pieces_furnitures (table: pieces)
 ALTER TABLE pieces ADD CONSTRAINT pieces_furnitures
     FOREIGN KEY (furnitures_id)
-    REFERENCES furnitures (id);
+    REFERENCES furnitures (furnitureDesignId);
 
 
 -- Reference: textures_pieces (table: textures)
 ALTER TABLE textures ADD CONSTRAINT textures_pieces
     FOREIGN KEY (pieces_id)
-    REFERENCES pieces (id);
+    REFERENCES pieces (furnitureDesignId);
 */

@@ -18,7 +18,7 @@ export class RegisterDesignValidator {
         createDesignRequest: RegisterFurnitureRequest
     ): Promise<AppNotification> {
         const notification: AppNotification = new AppNotification();
-        const canvas = this._furnitureRepository.createQueryBuilder().where("id = :id", { id: createDesignRequest.canvasId.getCanvasId()}).getOne();
+        const canvas = this._furnitureRepository.createQueryBuilder().where("furnitureDesignId = :furnitureDesignId", { id: createDesignRequest.canvasId.getCanvasId()}).getOne();
         if(canvas != null)
             notification.addError("canvas is taken", null);
         if(createDesignRequest.name.length > 50)

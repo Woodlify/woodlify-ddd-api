@@ -16,7 +16,7 @@ export class ModifyDesignValidator {
         modifyDesignRequest: ModifyDesignRequest
     ): Promise<AppNotification> {
         const notification: AppNotification = new AppNotification();
-        const canvas = this._furnitureRepository.createQueryBuilder().where("id = :id", {id: modifyDesignRequest.id }).getOne();
+        const canvas = this._furnitureRepository.createQueryBuilder().where("furnitureDesignId = :furnitureDesignId", {id: modifyDesignRequest.id }).getOne();
         if( canvas === null )
             notification.addError("Furniture doesn't exist", null);
         if(modifyDesignRequest.name.length > 50)

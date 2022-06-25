@@ -43,7 +43,7 @@ export class FurnituresController {
         }
     }
 
-    @Get("/:id")
+    @Get("/:furnitureDesignId")
     async getById(@Param("id") furnitureId: number,  @Res({ passthrough: true }) response): Promise<object> {
         try {
             const furniture = await this.queryBus.execute(new GetFurnitureByIdQuery(furnitureId));
