@@ -17,17 +17,18 @@ export class DeleteDesignHandler
 
   async execute(command: DeleteDesignCommand): Promise<any> {
     const manager = this.dataSource.createEntityManager();
-    const furnitureId = command.id;
+    const furnitureId = command.furnitureDesignId;
     const result = await manager
       .createQueryBuilder()
       .delete()
       .from(FurnitureTypeORM)
       .where('furnitureDesignId = :furnitureDesignId', { id: furnitureId })
       .execute();
-    if (!result) return;
+    if (!result) return false;
     const furnitureManager: FurnitureManager = FurnitureManager.getInstance();
-    if (!furnitureManager) return;
-    furnitureManager.deleteFurnitureId(command.id, command.name);
+    if (!furnitureManager) return false;
+    furnitureManager.deleteFurnitureId(command.furnitureDesignId, command.furnitureDesignName);
     furnitureManager.commit();
+    return true;
   }
 }

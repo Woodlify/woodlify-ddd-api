@@ -3,6 +3,6 @@ import { FurnitureState } from '../../../furniture-design/domain/enums/furniture
 export class RejectDesignCommand {
   constructor(
     public readonly id: number,
-    public readonly status: FurnitureState,
+    public readonly status: FurnitureState
   ) {}
 }

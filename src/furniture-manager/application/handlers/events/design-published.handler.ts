@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { PublishDesignCommand } from '../../commands/publish-design.command';
 import { FurnitureState } from '../../../../furniture-design/domain/enums/furnitureState.enum';
 import { InjectRepository } from '@nestjs/typeorm';
+import { AcceptDesignCommand } from '../../commands/accept-design.command';
 
 @EventsHandler(DesignPublishedEvent)
 export class DesignPublishedHandler
@@ -18,10 +19,10 @@ export class DesignPublishedHandler
 
   async handle(event: DesignPublishedEvent) {
     console.log('Design published');
-    const publishDesign = new PublishDesignCommand(
+    const acceptDesign = new AcceptDesignCommand(
       event.furnitureDesignId,
-      FurnitureState.PUBLISHED,
+      FurnitureState.ACCEPTED
     );
-    await this.commandBus.execute(publishDesign);
+    return await this.commandBus.execute(acceptDesign);
   }
 }

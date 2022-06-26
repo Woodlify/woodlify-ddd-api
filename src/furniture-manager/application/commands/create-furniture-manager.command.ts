@@ -4,6 +4,6 @@ export class CreateFurnitureManagerCommand {
     constructor (
         public readonly id: number,
         public readonly name: string,
-        public readonly furnitures: FurnitureId[],
+        public readonly furnitures: FurnitureId[]
     ) {}
 }

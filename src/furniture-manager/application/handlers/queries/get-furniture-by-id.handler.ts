@@ -14,14 +14,14 @@ export class GetFurnitureManagerByIdHandler implements IQueryHandler<GetFurnitur
         const sql = 
         `
         SELECT *
-        FROM furnitures_manager
+        FROM furniture_managers
         WHERE id = ${query.id}
         ORDER BY name ASC
         `;
-        const ormFurnitureManagers = await this._dataSource.query(sql);
-        if(!ormFurnitureManagers)
-            return [];
-        const dtos: GetFurnitureManagerByIdDto[] = ormFurnitureManagers.map(
+        const ormFurnitureManager = await this._dataSource.query(sql);
+        if(!ormFurnitureManager)
+            return null;
+        const dtos: GetFurnitureManagerByIdDto[] = ormFurnitureManager.map(
             (ormFurnitureManager: FurnitureManagerTypeORM) => {
                 const furnitureManagerDto: GetFurnitureManagerByIdDto = new GetFurnitureManagerByIdDto();
                 furnitureManagerDto.id = ormFurnitureManager.id;

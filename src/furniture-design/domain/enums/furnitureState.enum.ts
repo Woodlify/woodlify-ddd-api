@@ -1,6 +1,7 @@
 export enum FurnitureState {
-  IN_REVIEW = 0,
-  ACCEPTED = 1,
-  PUBLISHED = 2,
-  REJECTED = 3,
+  CREATED = 0,
+  IN_REVIEW = 1,
+  ACCEPTED = 2,
+  PUBLISHED = 3,
+  REJECTED = 4,
 }

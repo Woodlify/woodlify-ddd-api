@@ -5,9 +5,6 @@ export class SubmitDesignRequest {
   constructor(
     public readonly id: number,
     public readonly name: string,
-    public readonly status: FurnitureState,
-    public readonly designedDate: Date,
-    public readonly lastModification: Date,
-    public readonly canvasId: CanvasId,
+    public readonly status: FurnitureState
   ) {}
 }

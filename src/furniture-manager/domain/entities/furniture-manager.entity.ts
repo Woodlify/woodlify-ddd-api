@@ -2,7 +2,9 @@ import { AggregateRoot } from "@nestjs/cqrs";
 import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
 import { FurnitureState } from "src/furniture-design/domain/enums/furnitureState.enum";
 import { FurnitureId } from "src/furniture-design/domain/value-objects/furniture-id.value";
+import { DesignAcceptedEvent } from "../events/design-accepted.event";
 import { DeletedDesignEvent } from "../events/design-deleted.event";
+import { DesignPublishedEvent } from "../events/design-published.event";
 import { DesignSubmittedEvent } from "../events/design-submitted.event";
 import { FurnitureManagerCreated } from "../events/furniture-manager-created.event";
 import { FurnitureManagerId } from "../value-objects/furniture-manager-id.value";
@@ -86,6 +88,22 @@ export class FurnitureManager extends AggregateRoot {
 
     public changeId(id: FurnitureManagerId): void {
         this._id = id;
+    }
+
+    public publishDesign(furniture: Furniture) {
+        const event: DesignPublishedEvent = new DesignPublishedEvent(
+            furniture.getId().getFurnitureId(),
+            furniture.state
+        );
+        this.apply(event);
+    }
+
+    public acceptDesign(furniture: Furniture) {
+        const event: DesignAcceptedEvent = new DesignAcceptedEvent(
+            furniture.getId().getFurnitureId(),
+            furniture.state
+        );
+        this.apply(event);
     }
 
 }

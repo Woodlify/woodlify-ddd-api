@@ -1,7 +1,7 @@
 import { FurnitureTypeORM } from 'src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('furnitures_manager')
+@Entity('furniture_managers')
 export class FurnitureManagerTypeORM {
   @PrimaryGeneratedColumn('increment', {
     type: 'bigint',

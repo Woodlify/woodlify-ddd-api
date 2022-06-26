@@ -14,7 +14,7 @@ export class GetFurnitureManagerHandler implements IQueryHandler<GetFurnitureMan
         const sql = 
         `
         SELECT *
-        FROM furnitures_manager
+        FROM furniture_managers
         `;
         const ormFurnitureManagers = await this._dataSource.query(sql);
         if(!ormFurnitureManagers)

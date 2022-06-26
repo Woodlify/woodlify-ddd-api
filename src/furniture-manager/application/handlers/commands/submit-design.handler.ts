@@ -1,4 +1,4 @@
-import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
+import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FurnitureState } from 'src/furniture-design/domain/enums/furnitureState.enum';
 import { FurnitureFactory } from 'src/furniture-design/domain/factories/furniture.factory';
@@ -17,6 +17,7 @@ export class SubmitDesignHandler
     @InjectRepository(FurnitureTypeORM)
     private _furnitureRepository: Repository<FurnitureTypeORM>,
     private _dataSource: DataSource,
+    private eventPublisher: EventPublisher
   ) {}
 
   async execute(command: SubmitDesignCommand): Promise<any> {
@@ -29,12 +30,12 @@ export class SubmitDesignHandler
     );
     if (!furniture) return;
     let furnitureUpdated: FurnitureTypeORM = { ...furniture };
-    furnitureUpdated.state = FurnitureState.ACCEPTED;
+    furnitureUpdated.state = FurnitureState.IN_REVIEW;
     furnitureUpdated = await this._furnitureRepository.save({
       ...furniture,
       ...furnitureUpdated,
     });
-    const furnitureManager: FurnitureManager = FurnitureManager.getInstance();
+    let furnitureManager: FurnitureManager = FurnitureManager.getInstance();
     if (!furnitureManager) return;
     const furnitureEntity = FurnitureFactory.createWIthId(
       FurnitureId.create(furnitureUpdated.id),
@@ -43,6 +44,7 @@ export class SubmitDesignHandler
       furnitureUpdated.name,
       CanvasId.create(furnitureUpdated.canvasId.value),
     );
+    furnitureManager = this.eventPublisher.mergeObjectContext(furnitureManager);
     furnitureManager.changeFurnitureState(furnitureEntity);
     furnitureManager.commit();
   }
