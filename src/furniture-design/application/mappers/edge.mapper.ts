@@ -1,7 +1,7 @@
 import { Edge } from "src/furniture-design/domain/entities/edge.entity";
-import { EdgeTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/edge.typeorm";
-import { PieceIdTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/piece-id.typeorm";
-import { VertexTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/vertex.typeorm";
+import { EdgeTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/edge.typeorm";
+import { PieceIdTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/value-objects/piece-id.typeorm";
+import { VertexTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/value-objects/vertex.typeorm";
 
 export class EdgeMapper {
     public static toTypeOrm(edge: Edge): EdgeTypeORM {

@@ -1,4 +1,3 @@
-import { CustomerId } from "../value-objects/customer-id.value";
 import { FurnitureId } from "../value-objects/furniture-id.value";
 import { CanvasId } from "../value-objects/canvas-id.value";
 import { Piece } from "../entities/piece.entity";

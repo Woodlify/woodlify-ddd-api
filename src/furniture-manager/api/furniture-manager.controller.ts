@@ -10,10 +10,10 @@ import { FurnitureManager } from "../domain/entities/furniture-manager.entity";
 
 @Controller("furniture_managers")
 export class FurnitureManagerController {
-    constructor(
+    constructor (
         private _furnitureManagerApplicationService: FurnitureManagerApplicationService,
         private _queryBus: QueryBus
-    ) {}
+    ) {  }
 
     @Post()
     async createFurnitureManager(

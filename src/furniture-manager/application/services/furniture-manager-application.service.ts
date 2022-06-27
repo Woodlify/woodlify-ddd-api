@@ -53,10 +53,6 @@ export class FurnitureManagerApplicationService {
             submitDesignRequest.status
         );
         const result = await this.commandBus.execute(submitDesignCommand);
-        if(!result){
-            notification.addError("Error in updating furniture state", null);
-            return Result.error(notification);
-        }
         const designSubmittedDto: SubmitDesignResponse = new SubmitDesignResponse(
             submitDesignRequest.id,
             submitDesignRequest.name,

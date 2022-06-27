@@ -19,14 +19,13 @@ export class CreateFurnitureManagerHandler
     let furnitureManagerId = 0;
     FurnitureManager.setInstance(
       FurnitureManagerId.create(command.id),
-      command.name,
+      command.name
     );
     const furnitureManager = FurnitureManager.getInstance();
     furnitureManager.furnitures = command.furnitures;
-    let furnitureTypeORM: FurnitureManagerTypeORM =
-      FurnitureManagerMapper.ToTypeOrm(furnitureManager);
+    let furnitureTypeORM: FurnitureManagerTypeORM = FurnitureManagerMapper.ToTypeOrm(furnitureManager);
     furnitureTypeORM = await this._furnitureManagerRepository.save(
-      furnitureTypeORM,
+      furnitureTypeORM
     );
     if (furnitureTypeORM == null) return furnitureManagerId;
     furnitureManagerId = Number(furnitureTypeORM.id);

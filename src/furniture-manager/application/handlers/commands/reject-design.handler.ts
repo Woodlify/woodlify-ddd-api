@@ -1,7 +1,7 @@
 import { RejectDesignCommand } from '../../commands/reject-design.command';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FurnitureTypeORM } from '../../../../furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
+import { FurnitureTypeORM } from '../../../../furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm';
 import { Repository } from 'typeorm';
 
 @CommandHandler(RejectDesignCommand)

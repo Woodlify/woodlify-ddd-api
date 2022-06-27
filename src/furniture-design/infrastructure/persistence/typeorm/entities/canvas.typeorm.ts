@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { FurnitureTypeORM } from "./furniture.typeorm";
 
 @Entity('canvases')
 export class CanvasTypeORM {

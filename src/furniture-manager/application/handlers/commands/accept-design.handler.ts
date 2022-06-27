@@ -4,7 +4,7 @@ import { Furniture } from "src/furniture-design/domain/aggregates/furniture-desi
 import { FurnitureFactory } from "src/furniture-design/domain/factories/furniture.factory";
 import { CanvasId } from "src/furniture-design/domain/value-objects/canvas-id.value";
 import { FurnitureId } from "src/furniture-design/domain/value-objects/furniture-id.value";
-import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
+import { FurnitureTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm";
 import { FurnitureManager } from "src/furniture-manager/domain/entities/furniture-manager.entity";
 import { Repository } from "typeorm";
 import { AcceptDesignCommand } from "../../commands/accept-design.command";
@@ -44,7 +44,7 @@ export class AcceptDesignHandler implements ICommandHandler<AcceptDesignCommand>
         let furnitureManager: FurnitureManager = FurnitureManager.getInstance();
         if(!furnitureManager) return false;
         furnitureManager = this.eventPublisher.mergeObjectContext(furnitureManager);
-        furnitureManager.publishDesign(furniture);
+        furnitureManager.acceptDesign(furniture);
         furnitureManager.commit();
         return true;
       }

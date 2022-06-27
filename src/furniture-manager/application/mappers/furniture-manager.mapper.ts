@@ -5,6 +5,7 @@ export class FurnitureManagerMapper {
     public static ToTypeOrm(furnitureManager: FurnitureManager): FurnitureManagerTypeORM {
         const furnitureManagerTypeOrm: FurnitureManagerTypeORM = new FurnitureManagerTypeORM();
         furnitureManagerTypeOrm.name = furnitureManager.name;
+        furnitureManagerTypeOrm.id = furnitureManager.id.getValue();
         return furnitureManagerTypeOrm;
     }
 }

@@ -1,6 +1,6 @@
 import { Texture } from "src/furniture-design/domain/entities/texture.entity";
-import { TextureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/texture.typeorm";
-import { ColorRGBTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/color-rgb.typeorm";
+import { TextureTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/texture.typeorm";
+import { ColorRGBTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/value-objects/color-rgb.typeorm";
 
 export class TextureMapper {
     public static ToTypeOrm(texture: Texture): TextureTypeORM {

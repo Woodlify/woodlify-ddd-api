@@ -19,7 +19,7 @@ import { FurnitureManagerApplicationService } from './application/services/furni
 import { FurnitureManagerController } from './api/furniture-manager.controller';
 import { Module } from '@nestjs/common';
 import { GetFurnitureManagerByIdHandler } from './application/handlers/queries/get-furniture-by-id.handler';
-import { FurnitureTypeORM } from '../furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
+import { FurnitureTypeORM } from '../furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm';
 
 export const CommandHandlers = [
   AcceptDesignHandler,
@@ -47,7 +47,7 @@ export const QueryHandlers = [
 @Module({
   imports: [
     CqrsModule,
-    TypeOrmModule.forFeature([FurnitureManagerTypeORM, FurnitureTypeORM]),
+    TypeOrmModule.forFeature([FurnitureTypeORM, FurnitureManagerTypeORM]),
   ],
   exports: [TypeOrmModule],
   controllers: [FurnitureManagerController],

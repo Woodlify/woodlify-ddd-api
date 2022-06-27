@@ -1,6 +1,6 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
-import { FurnitureTypeORM } from 'src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
+import { FurnitureTypeORM } from 'src/furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm';
 import { FurnitureManager } from 'src/furniture-manager/domain/entities/furniture-manager.entity';
 import { DataSource, Repository } from 'typeorm';
 import { DeleteDesignCommand } from '../../commands/delete-design.command';

@@ -1,7 +1,7 @@
-import { PrimaryGeneratedColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn } from "typeorm";
 
 export class CanvasIdTypeORM {
-    @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
+    @Column({ type: 'bigint', name: 'id' })
     public value: number;
     private constructor(value: number) {
         this.value = Number(value);

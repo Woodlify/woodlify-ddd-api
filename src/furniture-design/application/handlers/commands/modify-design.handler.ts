@@ -3,7 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
 import { FurnitureFactory } from "src/furniture-design/domain/factories/furniture.factory";
 import { FurnitureId } from "src/furniture-design/domain/value-objects/furniture-id.value";
-import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
+import { FurnitureTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm";
 import { Repository } from "typeorm";
 import { ModifyDesignCommand } from "../../commands/modify-design.command";
 import { FurnitureMapper } from "../../mappers/furniture.mapper";

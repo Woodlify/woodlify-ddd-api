@@ -1,7 +1,7 @@
-import { PrimaryGeneratedColumn } from "typeorm";
+import { Column, PrimaryGeneratedColumn } from "typeorm";
 
 export class PieceIdTypeORM {
-    @PrimaryGeneratedColumn('increment', { type: 'bigint', name: 'id', unsigned: true })
+    @Column({ type: 'bigint', name: 'id', unsigned: true })
     public value: number;
     private constructor(value: number) {
         this.value = Number(value);

@@ -1,6 +1,6 @@
 import { CommandBus, EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { DesignPublishedEvent } from '../../../domain/events/design-published.event';
-import { FurnitureTypeORM } from '../../../../furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
+import { FurnitureTypeORM } from '../../../../furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm';
 import { Repository } from 'typeorm';
 import { PublishDesignCommand } from '../../commands/publish-design.command';
 import { FurnitureState } from '../../../../furniture-design/domain/enums/furnitureState.enum';

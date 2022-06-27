@@ -4,7 +4,7 @@ import { FurnitureState } from 'src/furniture-design/domain/enums/furnitureState
 import { FurnitureFactory } from 'src/furniture-design/domain/factories/furniture.factory';
 import { CanvasId } from 'src/furniture-design/domain/value-objects/canvas-id.value';
 import { FurnitureId } from 'src/furniture-design/domain/value-objects/furniture-id.value';
-import { FurnitureTypeORM } from 'src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
+import { FurnitureTypeORM } from 'src/furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm';
 import { FurnitureManager } from 'src/furniture-manager/domain/entities/furniture-manager.entity';
 import { DataSource, Repository } from 'typeorm';
 import { SubmitDesignCommand } from '../../commands/submit-design.command';
@@ -16,25 +16,20 @@ export class SubmitDesignHandler
   constructor(
     @InjectRepository(FurnitureTypeORM)
     private _furnitureRepository: Repository<FurnitureTypeORM>,
-    private _dataSource: DataSource,
     private eventPublisher: EventPublisher
   ) {}
 
   async execute(command: SubmitDesignCommand): Promise<any> {
-    const manager = this._dataSource.createEntityManager();
     const furnitureId: number = command.id;
-    const furniture: FurnitureTypeORM = await this._furnitureRepository.findOne(
-      {
-        where: { id: furnitureId },
-      },
-    );
+    const furniture: FurnitureTypeORM = await this._furnitureRepository
+      .createQueryBuilder()
+      .where('id = :id')
+      .setParameter('id', furnitureId)
+      .getOne();
     if (!furniture) return;
     let furnitureUpdated: FurnitureTypeORM = { ...furniture };
     furnitureUpdated.state = FurnitureState.IN_REVIEW;
-    furnitureUpdated = await this._furnitureRepository.save({
-      ...furniture,
-      ...furnitureUpdated,
-    });
+    furnitureUpdated = await this._furnitureRepository.save(furnitureUpdated);
     let furnitureManager: FurnitureManager = FurnitureManager.getInstance();
     if (!furnitureManager) return;
     const furnitureEntity = FurnitureFactory.createWIthId(

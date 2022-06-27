@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { AppNotification } from "src/common/application/app-notification";
-import { CanvasTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/canvas.typeorm";
-import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
+import { CanvasTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/canvas.typeorm";
+import { FurnitureTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm";
 import { Repository } from "typeorm";
 import { RegisterFurnitureRequest } from "../dtos/request/register-furniture-request.dto";
 

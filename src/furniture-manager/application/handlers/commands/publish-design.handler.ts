@@ -1,6 +1,6 @@
 import { PublishDesignCommand } from '../../commands/publish-design.command';
-import { FurnitureTypeORM } from '../../../../furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm';
-import { Repository } from 'typeorm';
+import { FurnitureTypeORM } from '../../../../furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Furniture } from 'src/furniture-design/domain/aggregates/furniture-design.entity';

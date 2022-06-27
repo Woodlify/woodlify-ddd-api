@@ -2,12 +2,13 @@ import { Edge } from "./edge.entity";
 import { Texture } from "./texture.entity";
 import { PieceId } from "../value-objects/piece-id.value";
 import { FurnitureId } from "../value-objects/furniture-id.value";
+import { GraphicComponent } from "../composite/graphic-component";
 
 
 
-export class Piece {
-    private _faces: Edge[];
-    private _textures: Texture[];
+export class Piece extends GraphicComponent {
+    private _faces: GraphicComponent[];
+    private _textures: GraphicComponent[];
     
     constructor(
         private _id: PieceId,
@@ -17,6 +18,7 @@ export class Piece {
         private _name: string,
         private _furnitureId: FurnitureId
     ) {
+        super();
         this._faces = [];
         this._textures = [];
     }
@@ -46,13 +48,13 @@ export class Piece {
     addFace(face: Edge): void {
         this._faces.push(face);
     }
-    getFaces(): Edge[] {
+    getFaces(): GraphicComponent[] {
         return [...this._faces];
     }
-    addTexture(texture: Texture): void {
+    public addComponent(texture: GraphicComponent): void {
         this._textures.push(texture);
     }
-    getTextures(): Texture[] {
+    getTextures(): GraphicComponent[] {
         return [...this._textures];
     }
 }

@@ -1,5 +1,5 @@
 import { Canvas } from "src/furniture-design/domain/entities/canvas.entity";
-import { CanvasTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/canvas.typeorm";
+import { CanvasTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/canvas.typeorm";
 
 export class CanvasMapper {
     public static toTypeOrm(canvas: Canvas): CanvasTypeORM {

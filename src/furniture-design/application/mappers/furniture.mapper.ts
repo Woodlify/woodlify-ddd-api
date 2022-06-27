@@ -1,8 +1,8 @@
 import { Furniture } from "src/furniture-design/domain/aggregates/furniture-design.entity";
 import { Piece } from "src/furniture-design/domain/entities/piece.entity";
-import { FurnitureTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/furniture.typeorm";
-import { PieceTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/piece.typeorm";
-import { CanvasIdTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/canvas-id.typeorm";
+import { FurnitureTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/furniture.typeorm";
+import { PieceTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/piece.typeorm";
+import { CanvasIdTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/value-objects/canvas-id.typeorm";
 import { PieceMapper } from "./piece.mapper";
 
 export class FurnitureMapper {

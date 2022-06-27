@@ -18,11 +18,11 @@ import { FurnitureApplicationService } from './application/services/furniture-ap
 import { RegisterCanvasValidator } from './application/validators/create-canvas.validator';
 import { RegisterDesignValidator } from './application/validators/create-design.validator';
 import { ModifyDesignValidator } from './application/validators/modify-design.validator';
-import { CanvasTypeORM } from './infraestructure/persistence/typeorm/entities/canvas.typeorm';
-import { EdgeTypeORM } from './infraestructure/persistence/typeorm/entities/edge.typeorm';
-import { FurnitureTypeORM } from './infraestructure/persistence/typeorm/entities/furniture.typeorm';
-import { PieceTypeORM } from './infraestructure/persistence/typeorm/entities/piece.typeorm';
-import { TextureTypeORM } from './infraestructure/persistence/typeorm/entities/texture.typeorm';
+import { CanvasTypeORM } from './infrastructure/persistence/typeorm/entities/canvas.typeorm';
+import { EdgeTypeORM } from './infrastructure/persistence/typeorm/entities/edge.typeorm';
+import { FurnitureTypeORM } from './infrastructure/persistence/typeorm/entities/furniture.typeorm';
+import { PieceTypeORM } from './infrastructure/persistence/typeorm/entities/piece.typeorm';
+import { TextureTypeORM } from './infrastructure/persistence/typeorm/entities/texture.typeorm';
 
 export const CommandHandlers = [
   CreateCanvasHandlder,

@@ -1,6 +1,6 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from "@nestjs/cqrs";
 import { InjectRepository } from "@nestjs/typeorm";
-import { CanvasTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/canvas.typeorm";
+import { CanvasTypeORM } from "src/furniture-design/infrastructure/persistence/typeorm/entities/canvas.typeorm";
 import { CreateCanvasCommand } from "../../commands/create-canvas.command";
 import { Repository } from "typeorm";
 import { CanvasMapper } from "../../mappers/canvas.mapper";
