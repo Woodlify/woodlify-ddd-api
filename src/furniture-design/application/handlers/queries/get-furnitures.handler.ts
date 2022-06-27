@@ -1,5 +1,5 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
-import { DataSource, EntityManager, getConnectionManager, getManager } from "typeorm";
+import { DataSource } from "typeorm";
 import { GetFurnituresDto } from "../../dtos/queries/get-furnitures.dto";
 import { GetFurnituresQuery } from "../../queries/get-furnitures.query";
 
@@ -10,9 +10,8 @@ export class GetFurnituresHandler implements IQueryHandler<GetFurnituresQuery> {
         const manager = this.dataSource.createEntityManager();
         const sql = 
         `
-        SELECT * 
+        SELECT *
         FROM furnitures
-        ORDER BY name ASC;
         `;
         const ormFurnitures = await manager.query(sql);
         if(ormFurnitures.length <= 0)
