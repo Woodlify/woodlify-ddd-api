@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './user-profile/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FurnitureDesignModule } from './furniture-design/furniture-design.module';
+import { DesignManagerModule } from './furniture-manager/design-manager.module';
 
 @Module({
   imports: [
@@ -16,20 +17,21 @@ import { FurnitureDesignModule } from './furniture-design/furniture-design.modul
       timezone: '+00:00',
       bigNumberStrings: false,
       entities: [
-        process.env.ENVIRONMENT == 'prod' ?
-        '**/infrastructure/persistence/typeorm/entities/*{.ts,.js}':
-        'dist/**/infrastructure/persistence/typeorm/entities/*{.ts,.js}'
+        process.env.ENVIRONMENT == 'prod'
+          ? '**/infrastructure/persistence/typeorm/entities/*{.ts,.js}'
+          : 'dist/**/infrastructure/persistence/typeorm/entities/*{.ts,.js}',
       ],
       subscribers: [],
       migrations: [
-        process.env.ENVIRONMENT == 'prod' ?
-        'common/infrastructure/persistence/typeorm/migrations/*{.ts,.js}':
-        'dist/common/infrastructure/persistence/typeorm/migrations/*{.ts,.js}'
+        process.env.ENVIRONMENT == 'prod'
+          ? 'common/infrastructure/persistence/typeorm/migrations/*{.ts,.js}'
+          : 'dist/common/infrastructure/persistence/typeorm/migrations/*{.ts,.js}',
       ],
-      migrationsTableName: "migrations"
+      migrationsTableName: 'migrations',
     }),
     UsersModule,
-    FurnitureDesignModule
+    FurnitureDesignModule,
+    DesignManagerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

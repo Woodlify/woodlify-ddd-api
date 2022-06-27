@@ -8,4 +8,8 @@ INSERT INTO cards(id, card_number, card_holder_name, cvv, due_date, company_name
     (7,'4554475645456753','Nicole Price','103','03/25',1),
     (8,'4554233645425364','Nicole Price','913','04/25',3),
     (9,'4554234476355466','Nicole Price','243','03/25',2),
-    (10,'4554234587654685','Nicole Price','733','03/25',2)
+    (10,'4554234587654685','Nicole Price','733','03/25',2);
+
+INSERT INTO furnitures VALUES(1,'puerta', '2022-01-23', '2022-01-30', 1);
+
+INSERT INTO canvases VALUES(1,'canvas 1', '2021-11-28', '2022-01-30');

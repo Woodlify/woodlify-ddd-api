@@ -1,5 +1,5 @@
 import { Edge } from "src/furniture-design/domain/entities/edge.entity";
-import { EdgeTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/edge.typorm";
+import { EdgeTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/entities/edge.typeorm";
 import { PieceIdTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/piece-id.typeorm";
 import { VertexTypeORM } from "src/furniture-design/infraestructure/persistence/typeorm/value-objects/vertex.typeorm";
 
