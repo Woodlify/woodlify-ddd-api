@@ -1,13 +1,13 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
-import { getManager } from "typeorm";
+import { DataSource, getManager } from "typeorm";
 import { GetFurnituresDto } from "../../dtos/queries/get-furnitures.dto";
 import { GetFurnitureByIdQuery} from "../../queries/get-furniture-by-id.query"
 
 @QueryHandler(GetFurnitureByIdQuery)
 export class GetFurnituresByIdHandler implements IQueryHandler<GetFurnitureByIdQuery> {
-    constructor() {}
+    constructor(private dataSource:DataSource) {}
     async execute(query: GetFurnitureByIdQuery): Promise<any> {
-        const manager = getManager();
+        const manager = this.dataSource.createEntityManager();
         const sql = 
         `
         SELECT * 

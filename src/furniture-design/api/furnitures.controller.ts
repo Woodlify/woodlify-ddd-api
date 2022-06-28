@@ -44,7 +44,7 @@ export class FurnituresController {
     }
 
     @Get("/:furnitureDesignId")
-    async getById(@Param("id") furnitureId: number,  @Res({ passthrough: true }) response): Promise<object> {
+    async getById(@Param("furnitureDesignId") furnitureId: number,  @Res({ passthrough: true }) response): Promise<object> {
         try {
             const furniture = await this.queryBus.execute(new GetFurnitureByIdQuery(furnitureId));
             return ApiController.ok(response, furniture);

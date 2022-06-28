@@ -18,12 +18,12 @@ export class RegisterDesignValidator {
         createDesignRequest: RegisterFurnitureRequest
     ): Promise<AppNotification> {
         const notification: AppNotification = new AppNotification();
-        const canvas = this._furnitureRepository.createQueryBuilder().where("furnitureDesignId = :furnitureDesignId", { id: createDesignRequest.canvasId.getCanvasId()}).getOne();
-        if(canvas != null)
-            notification.addError("canvas is taken", null);
+        //const canvas = this._furnitureRepository.createQueryBuilder().where("furnitureDesignId = :furnitureDesignId", { id: createDesignRequest.canvasId.getCanvasId()}).getOne();
+        //if(canvas != null)
+        //    notification.addError("canvas is taken", null);
         if(createDesignRequest.name.length > 50)
             notification.addError("Furniture design name length exceeded", null);
-        if( createDesignRequest.pieces.length >= 0)
+        if( createDesignRequest.pieces.length < 0)
             notification.addError("Not enough pieces to save de furniture", null);
         return notification;
     }
