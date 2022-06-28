@@ -1,15 +1,15 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
-import { getManager } from "typeorm";
+import { DataSource, getManager } from "typeorm";
 import { GetCanvasDto } from "../../dtos/queries/get-canvas.dto";
 import { GetCanvasByIdQuery } from "../../queries/get-canvas-by-id.query";
 
-@QueryHandler(GetCanvasDto)
+@QueryHandler(GetCanvasByIdQuery)
 export class GetCanvasByIdHandler implements IQueryHandler<GetCanvasByIdQuery> {
 
-    constructor () {}
+    constructor (private dataSource: DataSource) {}
 
     async execute(query: GetCanvasByIdQuery): Promise<any> {
-        const manager = getManager();
+        const manager = this.dataSource.createEntityManager();
         const sql = 
         `
         SELECT * 

@@ -11,7 +11,7 @@ import { CreatedDesignHandler } from './application/handlers/events/created-desi
 import { ModifiedDesignHandler } from './application/handlers/events/modified-design.handler';
 import { GetCanvasByIdHandler } from './application/handlers/queries/get-canvas-by-id.handler';
 import { GetCanvasHandler } from './application/handlers/queries/get-canvas.handler';
-import { GetFurnituresByIdHandler } from './application/handlers/queries/get-furniture-by-id.query';
+import { GetFurnituresByIdHandler } from './application/handlers/queries/get-furniture-by-id.handler';
 import { GetFurnituresHandler } from './application/handlers/queries/get-furnitures.handler';
 import { CanvasApplicationService } from './application/services/canvas-application.service';
 import { FurnitureApplicationService } from './application/services/furniture-application.service';
@@ -37,10 +37,10 @@ export const EventHandlers = [
 ];
 
 export const QueryHandlers = [
-  GetCanvasHandler,
   GetCanvasByIdHandler,
   GetFurnituresHandler,
   GetFurnituresByIdHandler,
+  GetCanvasHandler
 ];
 
 @Module({

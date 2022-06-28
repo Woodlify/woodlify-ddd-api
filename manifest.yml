@@ -1,7 +1,7 @@
 ---
 applications:
-  - name: woodlify-ddd-nest
-    memory: 512MB
+  - name: woodlify
+    memory: 128MB
     instances: 1
     buildpacks:
       - nodejs_buildpack

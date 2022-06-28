@@ -10,7 +10,7 @@ import { DesignManagerModule } from './furniture-manager/design-manager.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      url: `mysql://root:root@localhost:3306/woodlify`,
+      url: `mysql://admin:9lAzuWBCwMJZfqGlxAwC@mysql8.cselj9r9ujlf.us-east-2.rds.amazonaws.com:3306/woodlify`,
       name: 'default',
       migrationsRun: true,
       logging: true,

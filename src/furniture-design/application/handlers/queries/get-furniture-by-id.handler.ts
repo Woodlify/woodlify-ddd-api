@@ -1,5 +1,5 @@
 import { IQueryHandler, QueryHandler } from "@nestjs/cqrs";
-import { DataSource, getManager } from "typeorm";
+import { DataSource } from "typeorm";
 import { GetFurnituresDto } from "../../dtos/queries/get-furnitures.dto";
 import { GetFurnitureByIdQuery} from "../../queries/get-furniture-by-id.query"
 

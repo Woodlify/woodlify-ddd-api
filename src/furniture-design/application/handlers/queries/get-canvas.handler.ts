@@ -3,7 +3,7 @@ import { DataSource } from "typeorm";
 import { GetCanvasDto } from "../../dtos/queries/get-canvas.dto";
 import { GetCanvasQuery } from "../../queries/get-canvas.query";
 
-@QueryHandler(GetCanvasDto)
+@QueryHandler(GetCanvasQuery)
 export class GetCanvasHandler implements IQueryHandler<GetCanvasQuery> {
 
     constructor (private dataSource: DataSource) {}

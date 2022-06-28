@@ -32,7 +32,7 @@ export class CanvasesController {
     }
 
     @Get()
-    async getCanvases(@Res({ passthrough: true }) response): Promise<object> {
+    async getCanvases(@Res({ passthrough: true }) response): Promise<any> {
         try {
             const canvases = await this.queryBus.execute(new GetCanvasQuery());
             return ApiController.ok(response, canvases);
@@ -41,8 +41,8 @@ export class CanvasesController {
         }
     }
 
-    @Get("/:furnitureDesignId")
-    async getCanvasById(@Param("id") canvasId: number, @Res({ passthrough: true }) response): Promise<object> {
+    @Get("/:canvasId")
+    async getCanvasById(@Param("canvasId") canvasId: number, @Res({ passthrough: true }) response): Promise<any> {
         try {
             const canvas = await this.queryBus.execute(new GetCanvasByIdQuery(canvasId));
             return ApiController.ok(response, canvas);
