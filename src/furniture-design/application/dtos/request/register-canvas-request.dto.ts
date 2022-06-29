@@ -1,7 +1,19 @@
-export class RegisterCanvasRequest{
+import { ApiProperty } from "@nestjs/swagger";
+
+export class RegisterCanvasRequest {
+    @ApiProperty()
+    public readonly name: string;
+    @ApiProperty()
+    public readonly createdAt: Date;
+    @ApiProperty()
+    public readonly lastModification:Date;
     constructor(
-        public readonly name:string,
-        public readonly createdAt:Date,
-        public readonly lastModification:Date
-    ){}
+        name:string,
+        createdAt:Date,
+        lastModification:Date
+    ) {
+        this.name = name;
+        this.createdAt = createdAt;
+        this.lastModification = lastModification;
+    }
 }

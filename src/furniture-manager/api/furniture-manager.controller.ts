@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put, Res } from "@nestjs/common";
 import { QueryBus } from "@nestjs/cqrs";
+import { ApiTags } from "@nestjs/swagger";
 import { ApiController } from "src/common/api/api.controller";
 import { CreateFurnitureManagerRequest } from "../application/dtos/request/create-furniture-manager-request.dto";
 import { SubmitDesignRequest } from "../application/dtos/request/submit-design-request.dto";
@@ -7,7 +8,7 @@ import { GetFurnitureManagerByIdQuery } from "../application/queries/get-furnitu
 import { GetFurnitureManagerQuery } from "../application/queries/get-furniture-manager.query";
 import { FurnitureManagerApplicationService } from "../application/services/furniture-manager-application.service";
 import { FurnitureManager } from "../domain/entities/furniture-manager.entity";
-
+@ApiTags("Furniture Managers")
 @Controller("furniture_managers")
 export class FurnitureManagerController {
     constructor (
@@ -15,6 +16,7 @@ export class FurnitureManagerController {
         private _queryBus: QueryBus
     ) {  }
 
+    
     @Post()
     async createFurnitureManager(
         @Body() createFurnitureManagerRequest: CreateFurnitureManagerRequest,

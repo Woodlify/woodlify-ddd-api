@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Res } from "@nestjs/common";
 import { QueryBus } from "@nestjs/cqrs";
+import { ApiTags } from "@nestjs/swagger";
 import { ApiController } from "src/common/api/api.controller";
 import { AppNotification } from "src/common/application/app-notification";
 import { Result } from "typescript-result";
@@ -8,7 +9,7 @@ import { RegisterCanvasResponse } from "../application/dtos/response/register-ca
 import { GetCanvasByIdQuery } from "../application/queries/get-canvas-by-id.query";
 import { GetCanvasQuery } from "../application/queries/get-canvas.query";
 import { CanvasApplicationService } from "../application/services/canvas-application.service";
-
+@ApiTags("Canvases")
 @Controller("canvases")
 export class CanvasesController {
     constructor (

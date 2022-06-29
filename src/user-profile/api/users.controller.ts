@@ -11,7 +11,8 @@ import { CustomerApplicationService } from '../application/services/customer-app
 import { RegisterCustomerRequest } from '../application/dtos/request/register-customer-request.dto';
 import { RegisterCustomerResponse } from '../application/dtos/response/register-customer-response.dto';
 import { GetUsersCustomerQuery } from '../application/queries/get-users-customer.query';
-
+import { ApiTags } from '@nestjs/swagger';
+@ApiTags("Users")
 @Controller('users')
 export class UsersController {
   constructor(

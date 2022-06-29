@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put, Res } from "@nestjs/common";
 import { QueryBus } from "@nestjs/cqrs";
+import { ApiTags } from "@nestjs/swagger";
 import { ApiController } from "src/common/api/api.controller";
 import { AppNotification } from "src/common/application/app-notification";
 import { Result } from "typescript-result";
@@ -11,6 +12,7 @@ import { GetFurnitureByIdQuery } from "../application/queries/get-furniture-by-i
 import { GetFurnituresQuery } from "../application/queries/get-furnitures.query";
 import { FurnitureApplicationService } from "../application/services/furniture-application.service";
 
+@ApiTags("Furnitures")
 @Controller("furnitures")
 export class FurnituresController {
     constructor(

@@ -1,6 +1,15 @@
+import { ApiProperty } from "@nestjs/swagger";
+
 export class DeleteDesignRequest {
+    @ApiProperty()
+    public readonly id: number;
+    @ApiProperty()
+    public readonly name: string;
     constructor(
-        public readonly id: number,
-        public readonly name: string
-    ) {}
+        id: number,
+        name: string
+    ) {
+        this.id;
+        this.name = name;
+    }
 }
